@@ -12,7 +12,6 @@ class UserController {
 
     def userService
 
-    //@Secured(['ROLE_ANONYMOUS'])
     def signUp(@RequestParameter('username') String username, @RequestParameter('password') String password) {
         log.debug("Signing up a new user: ${username}:[******]")
         def user = userService.signUp(username, password)

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'whatwg-fetch';
+import auth from './auth';
 
 import { withRouter } from 'react-router';
 
@@ -23,19 +24,15 @@ class Search extends React.Component {
         this.success = this.success.bind(this);
 
         this.state = {
-            tweets: []
+            tweets: [],
+            auth: JSON.parse(localStorage.auth)
         }
-    }
-
-    componentDidMount() {
-        let auth = JSON.parse(localStorage.getItem("auth"));
-        this.setState({token: auth.access_token});
     }
 
     search(e) {
         e.preventDefault();
         console.log("Searching...");
-        let token = this.state.token;
+        let token = this.state.auth.access_token;
         let query = ReactDOM.findDOMNode(this.refs.query).value.trim();
 
         this.setState({inProgress: true});
@@ -59,6 +56,7 @@ class Search extends React.Component {
         console.error("Search has failed", error);
         this.setState({inProgress: false});
         if(error.response.status == 401) {
+            auth.logOut();
             this.props.router.replace({
                 pathname: "/signin",
                 state: {nextPath: "/search"}

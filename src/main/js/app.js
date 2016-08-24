@@ -20,13 +20,13 @@ class App extends React.Component {
     onAuth(loggedIn) {
         this.setState({
             loggedIn: loggedIn
-        })
+        });
     }
 
     render () {
         return (
             <div id="main-layout">
-                <Navigation loggedIn={this.state.loggedIn}/>
+                <Navigation/>
                 <main className="container">
                     {this.props.children}
                 </main>

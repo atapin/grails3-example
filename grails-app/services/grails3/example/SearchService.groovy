@@ -34,8 +34,8 @@ class SearchService {
     private static Twitter buildTwitter(OAuth2Token token = null) {
         def confBuilder = new ConfigurationBuilder()
                 .setApplicationOnlyAuthEnabled(true)
-                .setOAuthConsumerKey(System.getProperty("twitter4j.oauth.consumerKey"))
-                .setOAuthConsumerSecret(System.getProperty("twitter4j.oauth.consumerSecret"))
+                .setOAuthConsumerKey(System.getProperty("twitter.key") ?: System.getenv("TWITTER_KEY"))
+                .setOAuthConsumerSecret(System.getProperty("twitter.secret") ?: System.getenv("TWITTER_SECRET"))
 
         if(token) {
             confBuilder = confBuilder

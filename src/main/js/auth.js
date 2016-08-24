@@ -4,7 +4,7 @@ module.exports = {
 
     signIn(auth) {
         if(auth) {
-            localStorage.auth = auth;
+            localStorage.auth = JSON.stringify(auth);
             this.onAuth(true);
         }
     },
@@ -20,6 +20,7 @@ module.exports = {
 
     sub(component) {
         this.subscribers.add(component);
+        component.onAuth(this.loggedIn());
     },
 
     unsub(component) {

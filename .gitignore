@@ -13,3 +13,4 @@ classes/
 /grails-app/assets/javascripts/bundle.js
 /prodDb.mv.db
 /node_modules
+.gradletasknamecache

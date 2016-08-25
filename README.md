@@ -8,13 +8,13 @@ The app allows users to sign up, sign in and search tweets. Thus it requires Twi
 
 `demo:demo`
 
-### Commands:
+### Commands
 
 `grails test-app` - run tests
 
 `export TWITTER_KEY=...;TWITTER_SECRET=... grails run-app`  - run app with Twitter key/secret
 
-### Tech stack:
+### Tech stack
 
 - Grails 3
 - Spring Security Rest plugin
@@ -23,7 +23,7 @@ The app allows users to sign up, sign in and search tweets. Thus it requires Twi
 - React Router
 - Bootstrap
 
-### Drawbacks:
+### Drawbacks
 
 - no functional tests
 - no front-end tests
